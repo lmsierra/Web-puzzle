@@ -87,20 +87,22 @@ function calcularTamanio(){
 
 	if(!!puzzle){
 		var casillas = puzzle.getElementsByClassName('pieza');
-		var piezas = document.getElementById('piezas').getElementsByTagName('img');
+		var piezas = document.getElementById('juego').getElementsByTagName('img');
 
 		for(var i = 0; i < piezas.length; i++){
 
 			var _randomLeft = Math.floor(Math.random()*(90 - 10 + 1) + 10);
 			var _randomTop  = Math.floor(Math.random()*(475 + 1));
+			var _alura = ((window.innerHeight - document.getElementById('header').offsetHeight -30)/6) + 'px';
 
 			piezas[i].style.width = (puzzle.offsetWidth/6) + 'px';
-			piezas[i].style.height = '95px';
+			piezas[i].style.height = _alura; 
+			
 			piezas[i].style.top = _randomTop + 'px';
 			piezas[i].style.left = _randomLeft + 'px';
 
 			casillas[i].style.width = (puzzle.offsetWidth/6) + 'px';
-			casillas[i].style.height = 95 + 'px';
+			casillas[i].style.height = _alura;
 
 		}
 		document.getElementById('piezas').style.height = puzzle.offsetHeight + 'px';
