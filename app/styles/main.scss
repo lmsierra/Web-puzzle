@@ -1,6 +1,6 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
 body, html {
@@ -47,7 +47,6 @@ body, html {
       }
 
       #piezas{
-        background-color: Lavender;
         img{
           cursor: pointer;
           position: absolute;
@@ -56,55 +55,9 @@ body, html {
     }
 }
 
-.footer {
-    display: none;
-}
-
 .imagen {
     display: none;
 }
-
-.enlace-imagen{
-  cursor: pointer;
-}
-
-.animation_container {
-  position: relative;
-  z-index: 1;
-  perspective: 1000px;
-  display:inline-block;
-  vertical-align: top;
-}
-
-#f1_card {
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: all 0.5s linear;
-}
-
-.animated #f1_card {
-  transform: rotateY(180deg);
-}
-
-.face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
-
-.face.back {
-  display: block;
-  transform: rotateY(180deg);
-  box-sizing: border-box;
-  text-align: center;
-}
-
-.animated-back #f1_card {
-  transform: rotateY(-180deg);
-}
-
 
 #modal{
   visibility: hidden;
