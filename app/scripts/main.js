@@ -61,7 +61,7 @@ document.getElementById('dificultad-modal').addEventListener('click', function()
 document.getElementById('reintentar-modal').addEventListener('click', function(){
 	mostrarModal();
 	reset();
-//	iniciarJuego();
+	iniciarJuego();
 });
 
 function elegirDificultad(){
@@ -208,7 +208,6 @@ function drop(event){
 			if(arrayOcupados[d-1] != -1){
 				arrayColocaciones[arrayOcupados[d-1]] = false;
 			}
-
 			
 			event.target.appendChild(document.getElementById(data));
 
