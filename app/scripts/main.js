@@ -14,42 +14,42 @@ window.addEventListener('resize', calcularTamanio);
 
 document.getElementById('empezarBtn').addEventListener('click', function(){
 	elegirDificultad();
-    return false;
+	return false;
 });
 
 var _seleccionImagen = document.getElementsByClassName('dificultadBtn');
 for(var i = 0; i < _seleccionImagen.length; i++){
 
 	_seleccionImagen[i].addEventListener('click', function(){
-	    
-	    var _img = this.getAttribute('data-img');
 
-	    imagenSeleccionada = [];
-	    for(var j = 0; j < DIVISIONES; j++){
-	    	imagenSeleccionada.push(_img + '_' + (j + 1));
-	    }
+		var _img = this.getAttribute('data-img');
 
-	    document.getElementById('juego').style.display = 'block';
-	    document.getElementById('cuerpo').style.display = 'none';
-	    iniciarJuego();
+		imagenSeleccionada = [];
+		for(var j = 0; j < DIVISIONES; j++){
+			imagenSeleccionada.push(_img + '_' + (j + 1));
+		}
 
-	    return false;
+		document.getElementById('juego').style.display = 'block';
+		document.getElementById('cuerpo').style.display = 'none';
+		iniciarJuego();
+
+		return false;
 	});
 }
 
 document.getElementById('home').addEventListener('click', function(){
 	document.getElementById('logo').style.display = 'block';
-    document.getElementById('header').style.display = 'none';
-    document.getElementById('nivel').style.display = 'none';
-    return false;
+	document.getElementById('header').style.display = 'none';
+	document.getElementById('nivel').style.display = 'none';
+	return false;
 });
 
 document.getElementById('salir-modal').addEventListener('click', function(){
 	mostrarModal();
 	reset();
 	document.getElementById('logo').style.display = 'block';
-    document.getElementById('header').style.display = 'none';
-    document.getElementById('nivel').style.display = 'none';
+	document.getElementById('header').style.display = 'none';
+	document.getElementById('nivel').style.display = 'none';
 });
 
 document.getElementById('dificultad-modal').addEventListener('click', function(){
@@ -66,10 +66,10 @@ document.getElementById('reintentar-modal').addEventListener('click', function()
 
 function elegirDificultad(){
 	document.getElementById('logo').style.display = 'none';
-    document.getElementById('header').style.display = 'block';
-    document.getElementById('nivel').style.display = 'block';
-    document.getElementById('cuerpo').style.display = 'inline-block';
-    document.getElementById('juego').style.display = 'none';
+	document.getElementById('header').style.display = 'block';
+	document.getElementById('nivel').style.display = 'block';
+	document.getElementById('cuerpo').style.display = 'inline-block';
+document.getElementById('juego').style.display = 'none';
 }
 
 function mostrarModal(){
@@ -245,8 +245,15 @@ function drop2(event){
 	var d    = event.dataTransfer.getData('data');
 	
 	if(event.target){
+
+		if((arrayOcupados[d-1] + 1) == document.getElementById(data).getAttribute('src').split('_')[1].split('.')[0]){
+			aciertos --;
+		}
+
 		arrayColocaciones[arrayOcupados[d-1]] = false;
 		arrayOcupados[d-1] = -1;
+
+
 		event.target.style.backgroundColor = 'Lavender';
 
 		arrayOcupados[d-1] = -1;
@@ -265,15 +272,14 @@ function drop2(event){
 function allowDrop(event){
 	event.preventDefault();
 	if (event.target.getAttribute('draggable') === 'true'){
-        event.dataTransfer.dropEffect = 'none';
-        event.target.style.top  = event.clientY;
-        event.target.style.left = event.clientX; 
+		event.dataTransfer.dropEffect = 'none';
+		event.target.style.top  = event.clientY;
+		event.target.style.left = event.clientX; 
 	}
-    else{
-        event.dataTransfer.dropEffect = 'all';
-        event.target.style.backgroundColor = 'rgba(120, 255, 59, 0.3)';
-    }
-
+	else{
+		event.dataTransfer.dropEffect = 'all';
+		event.target.style.backgroundColor = 'rgba(120, 255, 59, 0.3)';
+	}
 }
 
 function dragLeave(){
@@ -281,15 +287,15 @@ function dragLeave(){
 	var _color = event.dataTransfer.getData('color');
 
 	if (event.target.getAttribute('draggable') === 'true'){
-        event.dataTransfer.dropEffect = 'none';
+		event.dataTransfer.dropEffect = 'none';
 	}
-    else{
-        event.dataTransfer.dropEffect = 'all';
-        if(event.target.classList.contains('pieza')){
-        	event.target.style.backgroundColor = "white";
-        }
-        else{
-        	event.target.style.backgroundColor = "lavender";
-        }
-    }
+	else{
+		event.dataTransfer.dropEffect = 'all';
+		if(event.target.classList.contains('pieza')){
+			event.target.style.backgroundColor = "white";
+		}
+		else{
+			event.target.style.backgroundColor = "lavender";
+		}
+	}
 }
