@@ -1,0 +1,149 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+body, html {
+    background: Lavender;
+    text-align: center;
+}
+
+#header {
+    display: none;
+    border-bottom: 1px solid black;
+    img {
+        width: 3%;
+    }
+}
+
+#nivel {
+    display: none;
+    text-align: center;
+    #cuerpo {
+      .dificultad{
+        display: inline-block;
+        img{
+          width: 256px;
+          height: 170px;
+          cursor: pointer;
+        }
+      }
+    }
+    #juego {
+      padding-top: 15px;
+
+      .row {
+          margin: 0;
+          padding: 0;
+      }
+
+      #puzzle{
+        padding: 0;
+        .pieza{
+          display: inline-block;
+          background-color: white;
+          vertical-align: top;
+        }
+      }
+
+      #piezas{
+        background-color: Lavender;
+        img{
+          cursor: pointer;
+          position: absolute;
+        }
+      }
+    }
+}
+
+.footer {
+    display: none;
+}
+
+.imagen {
+    display: none;
+}
+
+.enlace-imagen{
+  cursor: pointer;
+}
+
+.animation_container {
+  position: relative;
+  z-index: 1;
+  perspective: 1000px;
+  display:inline-block;
+  vertical-align: top;
+}
+
+#f1_card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 0.5s linear;
+}
+
+.animated #f1_card {
+  transform: rotateY(180deg);
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.face.back {
+  display: block;
+  transform: rotateY(180deg);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.animated-back #f1_card {
+  transform: rotateY(-180deg);
+}
+
+
+#modal{
+  visibility: hidden;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  z-index: 9999;
+  background-color: rgba(40,40,40,0.4); 
+}
+
+#modal-content{
+  background-color: white;
+  width: 500px;
+  height: 250px;
+  border:1px solid #000;
+  border-radius: 10px;
+  text-align:center;
+  margin: 100px auto;
+}
+
+#modal-header{
+  h3{
+    margin: 0;
+    padding: 10px 10px;
+    border-bottom: 1px solid black;
+  }
+}
+#modal-body{
+  height: 60%;
+  padding: 15px;
+  span{
+    font-weight: bold;
+  }
+}
+#modal-footer{
+  border-top: 1px solid black;
+  padding: 10px;
+  height: 20%;
+}

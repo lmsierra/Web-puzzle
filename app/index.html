@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>Puzzle</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="/logo.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    
+    <div class="container">
+      <header id="header">
+        <a id="home" href=""><img src="images/logo.png" alt="memory"></a>
+      </header>
+      <div id="logo" class="row">
+        <h1><img src="images/logo.png" alt="memory"></h1>
+        <button id="empezarBtn" class="btn btn-primary btn-lg" type="button">Empezar</button>
+      </div>
+      <div id="nivel" class="row">
+        <div id="cuerpo">
+          <h2>Por favor, seleccione la imagen deseada: </h2>
+          <div class="col-md-3 dificultad">
+            <img src="/images/rana.jpg" class="dificultadBtn" alt="" data-img="rana">
+           </div>
+          <div class="col-md-3 dificultad">
+            <img src="/images/cocodrilo.jpg" class="dificultadBtn" alt="" data-img="cocodrilo">
+          </div>
+          <div class="col-md-3 dificultad">
+            <img src="/images/rana.jpg" alt="" class="dificultadBtn" data-img="rana">
+          </div>
+          <div class="col-md-3 dificultad">
+            <img src="/images/rana.jpg" alt="" class="dificultadBtn" data-img="rana">
+          </div>
+        </div>
+        <div id="juego">
+          
+        </div>
+      </div>
+      <div class="footer">
+        <p><span class="glyphicon glyphicon-registration-mark"></span> Author: Mandaca</p>
+      </div>
+    </div>
+    <div id="modal">
+      <div id="modal-content">
+        <div id="modal-header">
+          <h3>Resultado:</h3>
+        </div>
+        <div id="modal-body">
+          <p>Intentos:   <span id="intentos"></span></p>
+          <p>Aciertos:    <span id="aciertos"></span></p>
+          <p>% aciertos: <span id="porcentaje-aciertos"></span></p>
+          <p>Tiempo:     <span id="tiempo"></span></p>
+        </div>
+        <div id="modal-footer">
+          <button id="salir-modal" class="btn btn-primary">Salir</button>
+          <button id="reintentar-modal" class="btn btn-primary">Reintentar</button>
+          <button id="dificultad-modal" class="btn btn-primary">Cambiar dificultad</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+
+  </body>
+</html>
