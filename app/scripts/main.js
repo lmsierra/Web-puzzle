@@ -155,13 +155,13 @@ function generarTablero(){
 		_tablero += '<div class="row">';
 
 		for(var j = 0; j < DIVISIONES/6; j++){
-			_tablero += '<div class="pieza" data-casilla="' + (( i* (DIVISIONES/6) + j) + 1) + '" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="dragLeave()">' +
+			_tablero += '<div class="pieza" data-casilla="' + (( i* (DIVISIONES/6) + j) + 1) + '" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="dragLeave(event)">' +
 						'</div>';
 		}
 		_tablero += '</div>'; 
 	}
 
-	_tablero += '</div><div id="piezas" class="col-md-2 clearfix" ondrop="drop2(event)" ondragover="allowDrop(event)"  ondragleave="dragLeave()">';
+	_tablero += '</div><div id="piezas" class="col-md-2 clearfix" ondrop="drop2(event)" ondragover="allowDrop(event)"  ondragleave="dragLeave(event)">';
 	
 	var _apariciones = [];
 
@@ -180,6 +180,7 @@ function generarTablero(){
 	calcularTamanio();
 }
 
+
 function drag(event){
 	event.target.style.zIndex = 1000;
 	event.dataTransfer.setData('text', event.target.id);
@@ -195,7 +196,7 @@ function dragEnd(event){
 function drop(event){
 
 	intentos ++;
-	event.preventDefault();
+	event.preventDefault(); //Elimina evento no es necesario, pero es buena practica
 
 	var data = event.dataTransfer.getData('text');
 	var d    = event.dataTransfer.getData('data');
@@ -231,8 +232,6 @@ function drop(event){
 			}
 			arrayColocaciones[_casilla -1] = true;
 			arrayOcupados[d-1] = _casilla - 1;
-		}else{
-
 		}
 	}
 	return false;
@@ -263,8 +262,24 @@ function drop2(event){
 		var elemento = document.getElementById(data);
 
 		event.target.appendChild(elemento);
-		elemento.style.left = event.clientX - coord.left;
-		elemento.style.top  = event.clientY - coord.top;
+		
+		var _left = (event.clientX - coord.left);
+		var _top  = (event.clientY - coord.top);
+
+		if((event.clientX - coord.left) > 90){
+			_left = 90;
+		}else if((event.clientX - coord.left) < 10){
+			_left = 0;
+		}
+
+		if((event.clientY - coord.top) > 475){
+			_top = 475;
+		}else if((event.clientY - coord.top) < 0){
+			_top = 0;
+		}
+
+		elemento.style.left = _left + 'px';
+		elemento.style.top  = _top + 'px';
 	}
 
 	return false;
@@ -274,8 +289,6 @@ function allowDrop(event){
 	event.preventDefault();
 	if (event.target.getAttribute('draggable') === 'true'){
 		event.dataTransfer.dropEffect = 'none';
-		event.target.style.top  = event.clientY;
-		event.target.style.left = event.clientX; 
 	}
 	else{
 		event.dataTransfer.dropEffect = 'all';
@@ -283,7 +296,7 @@ function allowDrop(event){
 	}
 }
 
-function dragLeave(){
+function dragLeave(event){
 	event.preventDefault();
 
 	if (event.target.getAttribute('draggable') === 'true'){
