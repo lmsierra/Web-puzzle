@@ -69,7 +69,7 @@ function elegirDificultad(){
 	document.getElementById('header').style.display = 'block';
 	document.getElementById('nivel').style.display = 'block';
 	document.getElementById('cuerpo').style.display = 'inline-block';
-document.getElementById('juego').style.display = 'none';
+	document.getElementById('juego').style.display = 'none';
 }
 
 function mostrarModal(){
@@ -184,7 +184,6 @@ function drag(event){
 	event.target.style.zIndex = 1000;
 	event.dataTransfer.setData('text', event.target.id);
 	event.dataTransfer.setData('data', event.target.getAttribute('data-img'));
-	event.dataTransfer.setData('color', event.target.parentNode.style.backgroundColor);
 
 	return false;
 }
@@ -286,7 +285,6 @@ function allowDrop(event){
 
 function dragLeave(){
 	event.preventDefault();
-	var _color = event.dataTransfer.getData('color');
 
 	if (event.target.getAttribute('draggable') === 'true'){
 		event.dataTransfer.dropEffect = 'none';
