@@ -1,7 +1,6 @@
 'use strict';
 
-//linea de prueba
-var DIVISIONES = 40;
+var DIVISIONES = 36;
 var aciertos = 0;
 var arrayAciertos = [];
 var arrayColocaciones = [];
